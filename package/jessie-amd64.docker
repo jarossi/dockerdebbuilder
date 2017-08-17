@@ -1,0 +1,20 @@
+FROM dockerdebbuilder:jessie-amd64
+
+ENV DEBIAN_FRONTEND noninteractive 
+RUN apt-get clean && apt-get update && apt-get install -y \ 
+    build-essential \ 
+    curl \ 
+    devscripts \ 
+    equivs \ 
+    lsb-release \ 
+    make \ 
+    pristine-tar \ 
+    rsync \
+    fakeroot \
+    wget && apt-get clean
+
+#WORKDIR /build/megacli-8.07.14
+
+#RUN dpkg-buildpackage -rfakeroot && dpkg -i ../megacli*.deb
+
+CMD ["/bin/bash"]
